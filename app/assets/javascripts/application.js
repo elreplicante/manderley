@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tuktuk
 //= require_tree .
+

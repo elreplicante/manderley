@@ -1,32 +1,31 @@
-<h1>Listing movies</h1>
+<div class="row">
+  <h1>Listing movies</h1>
 
-<table class="movie-list">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Duration</th>
-      <th>Synopsis</th>
-      <th>Year</th>
-      <th>Categories</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
+    <table class="movie-list">
+    <thead>
       <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.duration %></td>
-        <td><%= movie.synopsis %></td>
-        <td><%= movie.year %></td>
-        <td><%= movie.categories %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Synopsis</th>
+        <th>Year</th>
+        <th>Categories</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.duration %></td>
+          <td><%= movie.synopsis %></td>
+          <td><%= movie.year %></td>
+          <td><%= movie.categories %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Movie', new_movie_path, class: 'button secondary' %>
+</div>

@@ -9,5 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require tuktuk
+ *= require tuktuk.theme
+ *= require tuktuk.icons
  *= require_tree .
  */
