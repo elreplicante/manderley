@@ -14,5 +14,10 @@
   <strong>Synopsis:</strong>
   <%= @movie.synopsis %>
 </p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
