@@ -1,0 +1,329 @@
+body { font-family: 'proxima_novaregular', sans-serif; color: #000; }
+h1 { font-family: 'proxima_novabold'; font-size: 1.75em; margin-bottom: 2%;}
+a { text-decoration: none; color: #415374; }
+
+.lst-inline > li { display: inline-block; margin-left: -4px;}
+.lst-inline > li:first-child { margin-left: 0;}
+.lst-top > li { vertical-align: top; }
+.lst-middle > li { vertical-align: middle; }
+.lst-middle > li { vertical-align: bottom; }
+
+.nav-points { position: absolute; bottom: 20px; text-align: center; width: 100% }
+.nav-points  a {  
+  background-color: white;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  display: block;
+  margin: 0 5px; 
+}
+
+.nav-points a:hover { background-color: #34486e; }
+.nav-prev, .nav-next { position: absolute; width: 10%; top: 0; bottom: 0; }
+.nav-prev { left: 0; }
+.nav-next { right: 0; }
+    .nav-prev a, .nav-next a { 
+        display: block; 
+        width: 100%; 
+        height: 100%;
+        transition: background-color 0.5s ease 0s;
+        opacity: 0;
+        
+    }
+    .nav-prev a:hover, .nav-next a:hover { background-color: #cdcdcd; opacity: 0.3;}
+.nav-prev-arrow { background-position: -558px -5px; }
+.nav-next-arrow { background-position: -381px -5px; float: right; }
+
+.nav-position {
+    width: 23px;
+    height: 150px;
+    top: 50%;
+    margin-top: -75px;
+    position: relative;
+    display: block;
+}
+
+.header { position: fixed; width: 100%; top: 0; z-index: 1; 
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.9);
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.header-brand, .header-nav { display: inline-block; }
+.header-brand { 
+	vertical-align: bottom;
+	margin-right: 60px;
+	background-position: -69px -15px;
+}
+
+.header-container { width: 1000px; margin: 8px auto;  }
+
+.header a { color: #000; text-decoration: none;  }
+.header a:hover { color: #415374; text-decoration: underline;  }
+
+.header-brand a { width: 163px; height: 47px; display: block; }
+.header-nav li { border-left: 1px solid #000; padding: 0 15px; font-size: 16px; }
+    .header-nav li:first-child { border-left: none; }
+
+.twitter {
+    display: inline-block; 
+    background: rgb(229, 229, 229); 
+    border-radius: 5px; 
+    width: 100%;
+}
+
+.footer {
+	width: 100%	;
+	margin: 0px auto;
+	height: 200px;
+	background: rgb(52, 72, 110);
+	padding-top: 4%;
+    text-align: center;
+}
+
+.footer li { padding: 0 0.5%; border-left: 1px solid rgb(255, 255, 255); margin-bottom: 1%}
+.footer a {
+	color: rgb(255, 255, 255);
+}
+
+.footer a:hover { text-decoration: underline; }
+
+.carousel {
+	margin-top: 85px;
+	margin-bottom: 40px;
+	position: relative;
+	color:#fff;
+	font-size: 20px;
+}
+
+.carousel-container img { width: 100%; display: block; }
+.carousel-txt { 
+	position: absolute;
+	top: 30%; 
+	left: 35%;
+	right: 35%;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-txt p {
+  margin-bottom: 50px;
+  font-family: 'proxima_novalight';
+  font-size: 18px;
+}
+
+.carousel-txt-header { font-size: 36px; margin-bottom: 10px; }
+.carousel-txt-header span { font-family: 'proxima_novaregular' }
+.carousel-buttons li { width: 48%; }
+
+.home-content { padding-right: 1%; }
+
+.news { margin-bottom: 7%; }
+.news img { border-radius: 4px;}
+.news img:hover {  }
+.news li { margin-left: 2%; width: 23%; }
+
+.top-news { padding-left: 2%; }
+.top-news-header { font-family: 'proxima_novabold'; margin-bottom: 3% }
+
+.top-aside { 
+    margin: 3% 0%;
+    border-top: 1px dotted rgb(221, 221, 221);
+    border-bottom: 1px dotted rgb(221, 221, 221);
+}
+
+.top-aside ul li { padding: 3% 5%; }
+.top-aside ul li:first-child {  border-right: 1px dotted rgb(221, 221, 221); }
+
+.box-office {  margin-bottom: 45px; }
+.box-office-header h1 {display: inline; }
+.box-office-header a { float: right; color: #415374; font-size: 14px; }
+.box-office-table { width: 100%; }
+.box-office-table td { padding: 10px 0px;  }
+.box-office-table td:first-child{ width: 100%; }
+.box-office-table tr { border-bottom: 1px solid rgb(221, 221, 221); }
+.box-office-table tr:last-child { border: none; }
+.box-office-table tr:first-child { font-family: 'proxima_novabold'; }
+
+.coming-soon { margin-bottom: 25px; }
+.coming-soon-header li {
+	padding: 10px;
+	border: 1px solid rgb(221,221,221);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.coming-soon-header a:hover { font-family: 'proxima_novabold'; padding-top: 13px; }
+.coming-soon-header li:first-child {  border-bottom: none; }
+
+.button { 
+	font-size: 16px; 
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+	text-align: center;
+	display: block;
+	width: 180px;
+}
+.button a { 
+  color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  display: block;
+}
+
+.button a:hover { background: #2F4F4F; }
+
+.button-add { background: #35486B; }
+.button-see { transition: background-color 0.5s ease; background: #D96D02; }
+.button-see:hover {
+	background-color: #814000;
+}
+
+.header-title {
+	border-bottom: 1px solid rgb(221, 221, 221);
+	margin-bottom: 12px;
+	padding-bottom: 9px;
+	position: relative;
+}
+
+.header-title span { position: absolute; top: 0; right: 0; }
+.tooltip-inner { position: relative; }
+.tooltip-inner:hover .tooltip { display: block; }
+
+.tooltip { 
+	display: none;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.9);
+	color: rgb(255, 255, 255);
+	padding: 12px;
+	border-radius: 4px;
+	z-index: 2;   
+}
+
+.tooltip:before {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	border: 8px solid transparent;
+}
+
+.tooltip-up {  bottom: -50px; left: 10%; }
+.tooltip-up:before {
+	border-bottom: 8px solid rgba(0,0,0,0.9);
+	top: -16px;
+	left: 50%;
+}
+
+.tooltip-down {  top: -50px; left: 10%; }
+.tooltip-down:before {
+	border-top: 8px solid rgba(0,0,0,0.9);
+	bottom: -16px;
+	left: 50%;
+}
+
+.img-sprite {
+	background-image: url(../images/sprite.png); 
+	background-repeat: no-repeat; 
+    }
+
+.social { 
+    padding: 6%; 
+    background: rgb(242, 242, 242); 
+    border-radius: 5px; 
+    margin-top: 29%;
+}
+.social-header { margin-bottom: 10px; }
+.social-header span { font-family: 'proxima_novaregular'; }
+.social-buttons li { margin-right: 3% }
+
+.facebook-logo { width: 30px; height: 30px; background-position: -80px -165px; }
+.twitter-logo { width: 30px; height: 30px; background-position: -22px -165px; }
+.google-logo { width: 30px; height: 30px; background-position: -140px -165px; }
+
+.ranking { padding-left: 5%; }
+.ranking li { margin: 20px 0; }
+
+.ranking li img, .ranking li div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+}
+
+.ranking img { border-radius: 50%; }
+
+.ranking span{
+    background-color: white;
+    width: 220%;
+    height: 15px;
+    display: block;
+    border-radius: 5px;
+    text-align: left;
+    margin: 4px 0;
+}
+
+.ranking span > span{
+    background-color: rgb(49, 191, 254);
+    width: 80%;
+    height: 15px;
+    display: block;
+    border-radius: 5px;
+}
+.ranking em {
+    font-family: 'proxima_novaregular';
+    color: rgba(0,0,0,0.3);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.location { margin-bottom: 2%; font-size: 1.25em; }
+
+table.movie-list { border: 1px solid grey }
+table.movie-list thead tr { }
+table.movie-list th, table.movie-list td { padding: 0 15px; }
+table.movie-list th:first-child { padding-left: 0; }
+table.movie-list tr:nth-child(even) { background: grey; }
+
+@media screen and (max-width : 1024px) {
+
+
+    .carousel-txt {
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        right: 30%;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .grid_1,
+    .grid_2,
+    .grid_3,
+    .grid_4,
+    .grid_5,
+    .grid_6,
+    .grid_7,
+    .grid_8,
+    .grid_9,
+    .grid_10,
+    .grid_11,
+    .grid_12 {
+        width:100%;
+    }
+
+    .social {
+        margin-top: 1%;
+    }
+
+    .news li { margin-left: 1%; }
+    .carousel-txt {
+        position: absolute;
+        top: 5%;
+        left: 22%;
+        right: 15%;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    .top-aside ul li:first-child { 
+        border-bottom: 1px dotted rgb(221, 221, 221); 
+        border-right: none;
+    }
+}

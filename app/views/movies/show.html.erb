@@ -19,5 +19,10 @@
   <strong>Year:</strong>
   <%= @movie.year %>
 </p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @movie.categories %>
+</p>
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

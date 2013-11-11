@@ -20,12 +20,16 @@
     <%= f.number_field :duration %>
   </div>
   <div class="field">
-    <%= f.label :synopsis %><br>
-    <%= f.text_field :synopsis %>
-  </div>
-  <div class="field">
     <%= f.label :year %><br>
     <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :categories %><br>
+    <%= f.text_field :categories %>
+  </div>
+  <div class="field">
+    <%= f.label :synopsis %><br>
+    <%= f.text_area :synopsis %>
   </div>
   <div class="actions">
     <%= f.submit %>
