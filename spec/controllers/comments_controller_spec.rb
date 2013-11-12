@@ -41,11 +41,11 @@ describe CommentsController do
 
   describe "POST create" do
     describe "with valid atributes" do
-      xit "Create a new comment" do
+      it "creates a new comment" do
         movie = FactoryGirl.create(:movie)
         expect {
-         post :create, {:comment => valid_attributes}, valid_session  
-        }.to change(Comment, :count).by(1)
+         post :create, {:movie_id => movie.to_param, :comment => valid_attributes}, valid_session  
+        }.to change(movie.comments, :count).by(1)
       end
     end 
   end
