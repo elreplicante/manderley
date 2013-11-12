@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit]
+  before_action :set_movie, except: [:show, :edit]
+
   def index
-    @movie = Movie.find(params[:movie_id])
     @comments = @movie.comments
   end
   
@@ -9,7 +10,6 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.build
   end
 
@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.build(comment_params)
     respond_to do |format|
       if @comment.save
@@ -30,7 +29,12 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
+  protected
+
+  def set_movie
+    @movie = Movie.find(params[:movie_id])
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
   end
