@@ -1,31 +1,25 @@
 <div class="row">
-  <h1>Listing movies</h1>
+  <h1>Listing movies</h1> 
 
-    <table class="movie-list">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Duration</th>
-        <th>Synopsis</th>
-        <th>Year</th>
-        <th>Categories</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @movies.each do |movie| %>
-        <tr>
-          <td><%= movie.title %></td>
-          <td><%= movie.duration %></td>
-          <td><%= movie.synopsis %></td>
-          <td><%= movie.year %></td>
-          <td><%= movie.categories %></td>
-          <td><%= link_to 'Show', movie %></td>
-          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+    <div class="row">
+       <% @movies.each do |movie| %>
+        <article class="movie column_4 padding">
+          <header>
+            <h2><%= movie.title %></h2>
+          </header>
+          <div class="movie-info">
+            <p><span class="text bold">Year: </span><%= movie.year %></p>
+            <p><span class="text bold">Duration: </span><%= movie.duration %> mn</p>
+            <p><span class="text bold">Genre: </span><%= movie.categories %></p>
+            <p><span class="text bold">Synopsis: </span><%= movie.synopsis %></p>
+            <p class="favorite-link"><a href="#" class="active"><span class="icon star"></span>Add to favorites<small>(160)</small></a></p>
+          </div>
+          <aside class="buttons">
+            <%= link_to 'Show', movie, class: 'button secondary' %>
+            <%= link_to 'Edit', edit_movie_path(movie), class: 'button secondary' %>
+            <%= link_to 'Destroy', movie, class: 'button secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+          </aside>
+        </article>
       <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'New Movie', new_movie_path, class: 'button secondary' %>
+    </div>
 </div>
