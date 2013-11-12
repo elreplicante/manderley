@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit]
+  before_action :set_comment, only: [:show, :edit, :destroy]
   before_action :set_movie, except: [:show, :edit]
 
   def index
@@ -26,6 +26,14 @@ class CommentsController < ApplicationController
           format.html { render action: 'new' }
           format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
+    end
+  end
+
+  def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to movies_url }
+      format.json { head :no_content }
     end
   end
 
