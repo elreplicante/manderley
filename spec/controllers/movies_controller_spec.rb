@@ -25,7 +25,7 @@ describe MoviesController do
   # adjust the attributes here as well.
   let(:valid_attributes) { FactoryGirl.attributes_for(:movie) }
   # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
+  # in order to pass any filters (e.g. authentication) defined index
   # MoviesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 

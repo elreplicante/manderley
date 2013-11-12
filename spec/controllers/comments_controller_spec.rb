@@ -1,14 +1,53 @@
 require 'spec_helper'
 
 describe CommentsController do
-  let(:valid_attributes) { FactoryGirl.attributes_for(:comments) }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:comment) }
   let(:valid_session) { {} }
 
   describe "GET index" do
     it "lists all comments as @comments" do
-      comment = FactoryGirl.create(:comment)
-      get :index, {}, valid_session
+      movie = FactoryGirl.create(:movie)
+      comment = FactoryGirl.create(:comment, movie: movie)
+      get :index, {:movie_id => movie.to_param}, valid_session
       expect(assigns(:comments)).to eq([comment])
     end
   end
+
+  describe "GET show" do
+    it "assigns the requested comment as @comment" do
+      movie = FactoryGirl.create(:movie)
+      comment = FactoryGirl.create(:comment, movie: movie)
+      get :show, {:movie_id => movie.to_param, :id => comment.to_param}, valid_session
+      expect(assigns(:comment)).to eq comment
+    end
+  end
+
+  describe "GET new" do
+    it "assigns a new comment as @comment" do
+      movie = FactoryGirl.create(:movie)
+      get :new, {:movie_id => movie.to_param}, valid_session
+      expect(assigns(:comment)).to be_a_new(Comment)
+    end
+  end
+
+  describe "GET edit" do
+    it "asigns the requested comment as @comment" do
+      movie = FactoryGirl.create(:movie)
+      comment = FactoryGirl.create(:comment, movie: movie)
+      get :edit, {:movie_id => movie.to_param, :id => comment.to_param}, valid_session
+      expect(assigns(:comment)).to eq comment
+    end
+  end
+
+  describe "POST create" do
+    describe "with valid atributes" do
+      xit "Create a new comment" do
+        movie = FactoryGirl.create(:movie)
+        expect {
+         post :create, {:comment => valid_attributes}, valid_session  
+        }.to change(Comment, :count).by(1)
+      end
+    end 
+  end
+
 end

@@ -24,6 +24,16 @@
     <strong>Categories:</strong>
     <%= @movie.categories %>
   </p>
+
+  <p>
+  <% if @movie.comments %>
+    <% @movie.comments.each do |comment|  %>
+      <p><%= comment %></p>
+    <% end %> 
+  <% else %>
+    There are no comments
+  <% end %>
+  </p>
   <aside class="buttons">
     <%= link_to 'Edit', edit_movie_path(@movie), class: 'button secondary' %> 
     <%= link_to 'Back', movies_path, class: 'button secondary' %>

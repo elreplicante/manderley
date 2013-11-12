@@ -27,6 +27,10 @@ gem 'rspec-rails', group: [:test, :development]
 
 gem 'factory_girl_rails', group: [:test, :development]
 
+gem 'guard-rspec', group: [:test, :development]
+
+gem 'debugger'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
