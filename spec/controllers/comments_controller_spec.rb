@@ -55,15 +55,15 @@ describe CommentsController do
       movie = FactoryGirl.create(:movie)
       comment = FactoryGirl.create(:comment, movie: movie)
       expect {
-        delete :destroy, {:movie_id => movie.to_param, :comment => valid_attributes}, valid_session
+        delete :destroy, {:movie_id => movie.to_param, :id => comment.to_param}, valid_session
       }.to change(movie.comments, :count).by(-1)
     end
 
     it "redirects to the movies list" do
       movie = FactoryGirl.create(:movie)
-      delete :destroy, {:movie_id => movie.to_param, :comment => valid_attributes}, valid_session
+      comment = FactoryGirl.create(:comment, movie: movie)
+      delete :destroy, {:movie_id => movie.to_param, :id => comment.to_param}, valid_session
       expect(response).to redirect_to(movies_url)
     end
   end
-
 end
