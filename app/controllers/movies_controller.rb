@@ -6,6 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @comments = @movie.comments
+    @comment = @movie.comments.build
   end
 
   # GET /movies/new
@@ -33,8 +35,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /movies/1
-  # PATCH/PUT /movies/1.json
   def update
     respond_to do |format|
       if @movie.update(movie_params)

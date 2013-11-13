@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :destroy]
-  before_action :set_movie, except: [:show, :edit]
+  before_action :set_comment, only: [:show, :edit, :destroy, :update]
+  before_action :set_movie, except: [:show, :update]
 
   def index
     @comments = @movie.comments
@@ -14,18 +14,31 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @movie = @comment.movie
   end
 
   def create
     @comment = @movie.comments.build(comment_params)
     respond_to do |format|
       if @comment.save
-          format.html { redirect_to @movie, notice: 'Comment was successfully created.' }
+          format.html { redirect_to @comment.movie, notice: 'Comment was successfully created.' }
           format.json { render action: 'show', status: :created, location: @comment }
         else
           format.html { render action: 'new' }
           format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @comment.movie, notice: 'Comment was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @comment.movie.errors, status: :unprocessable_entity }
+      end
     end
   end
 

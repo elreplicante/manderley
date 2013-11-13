@@ -26,14 +26,21 @@
     <%= @movie.categories %>
   </p>
 
+  <p>Add comment</p>
+  
+  <%= render 'shared/comment' %>
+  
   <p>
-  <% if @movie.comments %>
+
+  <% if @movie.comments.any? %>
     <% @movie.comments.each do |comment|  %>
-      <p><%= comment %></p>
+      <h5><%= comment.author %></h5>
+      <p><%= comment.body %></p>
     <% end %> 
   <% else %>
     There are no comments
   <% end %>
+
   </p>
   <aside class="buttons">
     <%= link_to 'Edit', edit_movie_path(@movie), class: 'button secondary' %> 
