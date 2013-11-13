@@ -3,8 +3,10 @@ Manderley::Application.routes.draw do
 
   resources :movies do
     resources :comments, shallow: true
+    get :new_cast
+    post :create_cast
   end
-  resources :people, shallow: true
+  resources :people
   
   root 'movies#index'
 end

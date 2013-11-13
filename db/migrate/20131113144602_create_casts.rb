@@ -8,9 +8,10 @@ class CreateCasts < ActiveRecord::Migration
       t.timestamps
     end
 
-    Person.find_each do |person|
+    Person.all.find_each do |person|
       Cast.create({ movie: person.movie, person: person })
     end
+    remove_column :people, :movie_id
   end
 
 
@@ -21,5 +22,6 @@ class CreateCasts < ActiveRecord::Migration
       c.person.save
     end
     drop_table :casts
-  end
+  end 
 end
+

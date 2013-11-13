@@ -29,6 +29,8 @@ gem 'factory_girl_rails', group: [:test, :development]
 
 gem 'guard-rspec', group: [:test, :development]
 
+gem 'spork-rails', group: [:test, :development]
+
 gem 'debugger'
 
 # Use ActiveModel has_secure_password
