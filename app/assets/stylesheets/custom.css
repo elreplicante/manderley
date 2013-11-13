@@ -2,12 +2,9 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h1 {
-    border-bottom: 1px solid #34495e;
-    padding-bottom: 0.25%;
-    margin-bottom: 1%;
-} 
+h1 { border-bottom: 1px solid #34495e; padding-bottom: 0.25%; margin-bottom: 1%; } 
 
-.buttons { margin-top: 2%;}
+.buttons { margin-top: 2%; }
 
 .favorite-link { margin: 2% 0; }
+

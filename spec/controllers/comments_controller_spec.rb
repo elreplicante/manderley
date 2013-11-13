@@ -5,7 +5,6 @@ describe CommentsController do
   let(:valid_attributes) { FactoryGirl.attributes_for(:comment) }
   let(:valid_session) { {} }
 
-
   before(:each) do
     @movie = FactoryGirl.create(:movie)
   end

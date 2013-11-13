@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113121018) do
+ActiveRecord::Schema.define(version: 20131113144602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "casts", force: true do |t|
+    t.integer  "movie_id"
+    t.integer  "person_id"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "casts", ["movie_id"], name: "index_casts_on_movie_id", using: :btree
+  add_index "casts", ["person_id"], name: "index_casts_on_person_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.string   "author"
