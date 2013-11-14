@@ -6,8 +6,6 @@ $(document).ready(function() {
     });    
 })
 
-
-
 $(document).ready(function() {
     $('#add-person').on('click', function(event) {
        $('.cast-form').css('display', 'block');

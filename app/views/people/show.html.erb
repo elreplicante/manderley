@@ -11,8 +11,10 @@
 </p>
 
 <p>
-  <strong>Movie:</strong>
-  <%= @person.movie %>
+  <strong>Movies:</strong>
+  <% @person.movies.each do |movie|%>
+    <%= movie.title %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
