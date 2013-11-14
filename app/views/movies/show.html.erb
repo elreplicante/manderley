@@ -30,10 +30,11 @@
 
     <p>
       <strong>Cast:</strong>
-      <% if @movie.people.empty? %> 
+      <% if @movie.casts.empty? %> 
         <strong>No casting in movie</strong>
       <% else %>
-        <% @movie.casts.each do |c|%>
+        <% binding.pry %>
+        <% @movie.casts.each do |c| %>
           <strong>Name:</strong><%= c.person.name + ' ' + c.person.surname %>
           <strong>Role:</strong><%= c.role %>
         <% end %>

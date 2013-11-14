@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   def show
     @comments = @movie.comments
     @comment = @movie.comments.build
-    @cast = @movie.casts.build
+    @cast = Cast.new
     @casts = Cast.all
   end
 
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movie }
       else
-        format.html { render action: 'new' }
+        format.html { render action: :new }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end

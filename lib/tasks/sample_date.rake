@@ -3,7 +3,7 @@ namespace :db do
   task populate: :environment do
 
     
-    99.times do |n|
+    1000.times do |n|
       Movie.create!(title: "Blade Runner",
                     year: 1982,
                     duration: 120,
@@ -11,8 +11,7 @@ namespace :db do
                     synopsis: Faker::Lorem.paragraph
                     )
       Person.create!(name: Faker::Name.first_name,
-                    surname: Faker::Name.last_name,
-                    role: Faker::Name.title
+                    surname: Faker::Name.last_name
                     )
         
     end

@@ -1,7 +1,7 @@
 
 <div class="column_5">
   <aside class="margin">
-    <%= form_for( @cast, url: movie_create_cast_path(@cast.movie)) do |f| %>
+    <%= form_for( @cast, url: movie_create_cast_path(@movie)) do |f| %>
     <% if @cast.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>

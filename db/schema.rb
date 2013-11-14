@@ -50,12 +50,9 @@ ActiveRecord::Schema.define(version: 20131114150647) do
   create_table "people", force: true do |t|
     t.string   "name"
     t.string   "surname"
-    t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
   end
-
-  add_index "people", ["movie_id"], name: "index_people_on_movie_id", using: :btree
 
 end

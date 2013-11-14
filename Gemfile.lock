@@ -155,7 +155,9 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
+  json
   pg
+  pry
   rails (= 4.0.1)
   rspec-rails
   sdoc

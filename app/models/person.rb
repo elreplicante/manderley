@@ -4,10 +4,7 @@ class Person < ActiveRecord::Base
   
   validates_presence_of :name, :surname
 
-
   def complete_name
-    '{#self.first_name} {#self.last_name}'
-
-    
+    "#{self.name} #{self.surname}"
   end
 end

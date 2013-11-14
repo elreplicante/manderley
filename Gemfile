@@ -29,9 +29,10 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'spork-rails'
   gem 'faker'
+  gem 'json'
 end
 
-
+gem 'pry'
 
 
 # Use ActiveModel has_secure_password
