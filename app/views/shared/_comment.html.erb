@@ -1,4 +1,5 @@
 <div class="column_5">
+  
   <aside class="comment-form margin">
   <%= form_for([@movie, @comment]) do |f| %>
   <% if @comment.errors.any? %>
@@ -12,7 +13,7 @@
     </ul>
   </div>
   <% end %>
-
+  <h4>Add a comment</h4>
   <div class="field">
     <%= f.label :author %><br>
     <%= f.text_field :author %>

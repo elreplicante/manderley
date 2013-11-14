@@ -2,52 +2,56 @@
   <p id="notice"><%= notice %></p>
 
   <section class="column_6 movie-info">
-<fieldset>  
-    <p>
+  <ul>
+    <li>
       <strong>Title:</strong>
       <%= @movie.title %>
-    </p>
+    </li>
 
-    <p>
+    <li>
       <strong>Duration:</strong>
       <%= @movie.duration %>
-    </p>
+    </li>
 
-    <p>
+    <li>
       <strong>Synopsis:</strong>
       <%= @movie.synopsis %>
-    </p>
+    </li>
 
-    <p>
+    <li>
       <strong>Year:</strong>
       <%= @movie.year %>
-    </p>
+    </li>
 
-    <p>
+    <li>
       <strong>Categories:</strong>
       <%= @movie.categories %>
-    </p>
+    </li>
 
-    <p>
+    <li>
       <strong>Cast:</strong>
-      <% if @movie.casts.empty? %> 
-        <strong>No casting in movie</strong>
-      <% else %>
-        <% binding.pry %>
-        <% @movie.casts.each do |c| %>
-          <strong>Name:</strong><%= c.person.name + ' ' + c.person.surname %>
-          <strong>Role:</strong><%= c.role %>
+        
+        <% if @movie.casts.empty? %> 
+          <strong>No casting in movie</strong>
+        <% else %>
+        
+          <% @movie.casts.each do |c| %>
+          <ul>
+           <li> <strong>Name:</strong><%= c.person.name + ' ' + c.person.surname %></li>
+            <li><strong>Role:</strong><%= c.role %></li>
+          </ul>
+          <% end %>
         <% end %>
-      <% end %>
-      
-    </p>
+        
+    </li>
+  </ul>
     <aside class="buttons">
       <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
       <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
-      <%= link_to 'Add person', movie_new_cast_path(@movie), class: 'button secondary' %> 
+      <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %> 
       <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
     </aside>
-  </fieldset>
+
   </section>
   <%= render 'shared/comment' %>
   <%= render 'shared/cast' %>
