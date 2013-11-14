@@ -1,0 +1,16 @@
+es:
+  year: 'año'
+  genre: 'género'
+  duration: 'duración'
+  synopis: 'sinopsis'
+  
+  activerecord:
+    models:
+      movie:
+        one: "película"
+        other: "películas"
+      comment:
+        one: 'comentario'
+        other: 'comentarios'
+        
+

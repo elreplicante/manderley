@@ -7,10 +7,10 @@
           <h3><%= movie.title %></h3>
         </header>
         <div class="movie-info">
-          <p><span class="text bold">Year: </span><%= movie.year %></p>
-          <p><span class="text bold">Duration: </span><%= movie.duration %> mn</p>
-          <p><span class="text bold">Genre: </span><%= movie.categories %></p>
-          <p><span class="text bold">Synopsis: </span><%= truncate(movie.synopsis, length: 120) %></p>
+          <p><span class="text bold"><%= t('year').capitalize %>: </span><%= movie.year %></p>
+          <p><span class="text bold"><%= t('duration') %> </span><%= movie.duration %> mn</p>
+          <p><span class="text bold"><%= t('genre') %>: </span><%= movie.categories %></p>
+          <p><span class="text bold"><%= t('synopsis') %>: </span><%= truncate(movie.synopsis, length: 120) %></p>
           <p class="favorite-link"><a href="#" class="active"><span class="icon star"></span>Add to favorites<small>(160)</small></a></p>
         </div>
         <aside class="buttons">

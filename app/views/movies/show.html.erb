@@ -1,50 +1,53 @@
-<div class="padding">
+
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @movie.title %>
-  </p>
+  <section class="column_6 movie-info">
+<fieldset>  
+    <p>
+      <strong>Title:</strong>
+      <%= @movie.title %>
+    </p>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= @movie.duration %>
-  </p>
+    <p>
+      <strong>Duration:</strong>
+      <%= @movie.duration %>
+    </p>
 
-  <p>
-    <strong>Synopsis:</strong>
-    <%= @movie.synopsis %>
-  </p>
+    <p>
+      <strong>Synopsis:</strong>
+      <%= @movie.synopsis %>
+    </p>
 
-  <p>
-    <strong>Year:</strong>
-    <%= @movie.year %>
-  </p>
+    <p>
+      <strong>Year:</strong>
+      <%= @movie.year %>
+    </p>
 
-  <p>
-    <strong>Categories:</strong>
-    <%= @movie.categories %>
-  </p>
+    <p>
+      <strong>Categories:</strong>
+      <%= @movie.categories %>
+    </p>
 
-  <p>Add comment</p>
-  
+    <p>
+      <strong>Cast:</strong>
+      <% if @movie.people.empty? %> 
+        <strong>No casting in movie</strong>
+      <% else %>
+        <% @movie.casts.each do |c|%>
+          <strong>Name:</strong><%= c.person.name + ' ' + c.person.surname %>
+          <strong>Role:</strong><%= c.role %>
+        <% end %>
+      <% end %>
+      
+    </p>
+    <aside class="buttons">
+      <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
+      <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
+      <%= link_to 'Add person', movie_new_cast_path(@movie), class: 'button secondary' %> 
+      <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
+    </aside>
+  </fieldset>
+  </section>
   <%= render 'shared/comment' %>
-  
-  <p>
-
-  <% if @movie.comments.any? %>
-    <% @movie.comments.each do |comment|  %>
-      <h5><%= comment.author %></h5>
-      <p><%= comment.body %></p>
-    <% end %> 
-  <% else %>
-    There are no comments
-  <% end %>
-
-  </p>
-  <aside class="buttons">
-    <%= link_to 'Edit', edit_movie_path(@movie), class: 'button secondary' %> 
-    <%= link_to 'Back', movies_path, class: 'button secondary' %>
-  </aside>
-</div>
+  <%= render 'shared/cast' %>
   

@@ -104,10 +104,10 @@ describe CommentsController do
         assigns(:comment).should eq(comment)
       end
 
-      xit "re-renders the 'edit' template" do
+      it "re-renders the 'edit' template" do
         comment = FactoryGirl.create(:comment, movie: @movie)
         Comment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => comment.to_param, :movie => { "author" => "invalid value" }}, valid_session
+        put :update, {:id => comment.to_param, :comment => { "author" => "invalid value" }}, valid_session
         expect(response).to render_template('edit')
       end
     end

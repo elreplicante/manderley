@@ -131,5 +131,4 @@ describe PeopleController do
       response.should redirect_to(people_url)
     end
   end
-
 end

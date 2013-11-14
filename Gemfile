@@ -23,15 +23,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'rspec-rails', group: [:test, :development]
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'spork-rails'
+  gem 'faker'
+end
 
-gem 'factory_girl_rails', group: [:test, :development]
 
-gem 'guard-rspec', group: [:test, :development]
 
-gem 'spork-rails', group: [:test, :development]
-
-gem 'debugger'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

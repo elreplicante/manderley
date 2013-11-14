@@ -2,9 +2,19 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h1 { border-bottom: 1px solid #34495e; padding-bottom: 0.25%; margin-bottom: 1%; } 
+h1 { border-bottom: 1px solid #34495e; padding-bottom: 1.25%; margin: 1% 0; } 
+
+h3 { margin-bottom: 2%; }
 
 .buttons { margin-top: 2%; }
 
 .favorite-link { margin: 2% 0; }
+
+.movie-info { margin: 1% 0; }
+
+.comment-form { margin-top: 1%; display: none; }
+
+.comments h4 { margin-bottom: 5%;}
+
+.comment { margin-bottom: 2%; }
 

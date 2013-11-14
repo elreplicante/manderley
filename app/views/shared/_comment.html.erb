@@ -1,14 +1,16 @@
-<%= form_for([@movie, @comment]) do |f| %>
+<div class="column_5">
+  <aside class="comment-form margin">
+  <%= form_for([@movie, @comment]) do |f| %>
   <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <div class="field">
@@ -22,4 +24,20 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+</aside>
+  <div class="comments margin">
+    <h4>Comments</h4>
+    <% if @movie.comments.any? %>
+      <% @movie.comments.each do |comment|  %>
+      <div class="comment">
+        <h5>Author: <span><%= comment.author %></span></h5>
+        <p><%= comment.body %></p>
+      </div>
+        
+      <% end %> 
+    <% else %>
+      There are no comments
+    <% end %>
+  </div>
+</div>

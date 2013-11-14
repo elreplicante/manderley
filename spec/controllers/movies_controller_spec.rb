@@ -80,7 +80,7 @@ describe MoviesController do
           put :update, {:id => movie.to_param, :movie => { "title" => "MyString" }}, valid_session
         end
 
-        xit "assigns the requested movie as @movie" do
+        it "assigns the requested movie as @movie" do
           movie = FactoryGirl.create(:movie)
           put :update, {:id => movie.to_param, :movie => valid_attributes}, valid_session
           expect(assigns(:movie)).to eq(movie)
