@@ -7,7 +7,12 @@ class Movie < ActiveRecord::Base
 
   scope :short, -> { where('duration < ?', 60) }
   scope :longer_that, ->(duration) {  where('duration > ?',duration) }
+  scope :medium, -> { longer_that 60 }
+  scope :long, -> { longer_that 90 }
+  scope :huge, -> { longer_that 120 }
   scope :nineties, -> { where('? < year < ?', 1989, 2000) }
   scope :modern, -> { where('year > ?', 2000) }
   scope :gorgeous, -> { self.modern.long }
+
+
 end
