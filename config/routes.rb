@@ -7,6 +7,9 @@ Manderley::Application.routes.draw do
     post "cast", to: 'movies#create_cast', as: :create_cast
   end
   resources :people
-  
+
+  get "search/new", to: "search#new", as: :new
+  post "search", to: "search#create", as: :create
+  get "search/show", to:  "search#show", as: :show
   root 'movies#index'
 end
