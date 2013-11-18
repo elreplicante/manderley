@@ -22,26 +22,25 @@ describe SearchController do
         expect(assigns(:search)).to be_a(Search)
       end
 
-      it "redirects to results page" do
+      it "renders to results page" do
         post :create, { :search => valid_search_attributes }, valid_session
-        expect(assigns(:search)).to render_template(:show)
+        expect(response).to render_template(:show)
       end
     end
 
     describe "with invalid params" do
-        before(:each) do
-          Search.any_instance.stub(:save).and_return(false)
-        end
-        it "assigns a newly created but unsaved movie as @movie" do
-          post :create, {:search => { "keyword" => "invalid value" }}, valid_session
-          expect(assigns(:search)).to be_a_new(Search)
-        end
-
-        it "re-renders the 'new' template" do
-          post :create, {:search => { "keyword" => "invalid value" }}, valid_session
-          expect(assigns(:search)).to render_template(:new)
-        end
+      before(:each) do
+        Search.any_instance.stub(:save).and_return(false)
       end
-    
+      it "assigns a newly created but unsaved movie as @movie" do
+        post :create, {:search => { "keyword" => "invalid value" }}, valid_session
+        expect(assigns(:search)).to be_a_new(Search)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, {:search => { "keyword" => "invalid value" }}, valid_session
+        expect(response).to render_template(:new)
+      end
+    end
   end
 end

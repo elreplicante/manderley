@@ -1,6 +1,7 @@
 class Movie < ActiveRecord::Base
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
+  accepts_nested_attributes_for :casts
   has_many :people, through: :casts
 
   validates_presence_of :title, :year, :duration
@@ -13,6 +14,4 @@ class Movie < ActiveRecord::Base
   scope :nineties, -> { where('? < year < ?', 1989, 2000) }
   scope :modern, -> { where('year > ?', 2000) }
   scope :gorgeous, -> { self.modern.long }
-
-
 end

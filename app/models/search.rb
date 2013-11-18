@@ -19,6 +19,6 @@ class Search
 
   private
   def find_movies
-    Movie.where(' title = "%?%"', @keyword)
+    Movie.where(" title = '%s'", @keyword)
   end
 end

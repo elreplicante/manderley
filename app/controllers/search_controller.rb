@@ -1,16 +1,17 @@
 class SearchController < ApplicationController
-  before_filter :find_model
+  
 
   def new
     @search = Search.new
   end
 
   def create
-    @search = Search.new(params)
-    if !@search.results.empty?
-      render :show
+    @search = Search.new(params[:search])
+    if @search.results.empty?
+      render :new
     else
-      redirect_to :back
+      render action: :show
+      
     end
     
   end
@@ -20,8 +21,8 @@ class SearchController < ApplicationController
   end
 
   private
-  def find_model
-    @model = Search.find(params[:id]) if params[:id]
+  def search_params
+    params.require(:search).permit(:keyword)
   end
 end
 
