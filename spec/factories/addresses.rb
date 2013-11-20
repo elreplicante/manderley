@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :address do
+    street Faker::Address.street_name
+    number 24
+    zipcode '12345'
   end
 end
