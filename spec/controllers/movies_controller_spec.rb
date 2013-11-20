@@ -41,18 +41,18 @@ describe MoviesController do
       describe "with valid params" do
         it "creates a new Movie" do
           expect {
-            post :create, {:movie => valid_movie_attributes}, valid_session
+            post :create, {:movie => valid_movie_attributes, :cast => valid_cast_attributes}, valid_session
           }.to change(Movie, :count).by(1)
         end
 
         it "assigns a newly created movie as @movie" do
-          post :create, {:movie => valid_movie_attributes}, valid_session
+          post :create, {:movie => valid_movie_attributes, :cast => valid_cast_attributes}, valid_session
           expect(assigns(:movie)).to be_a(Movie)
           expect(assigns(:movie)).to be_persisted
         end
 
         it "redirects to the created movie" do
-          post :create, {:movie => valid_movie_attributes}, valid_session
+          post :create, {:movie => valid_movie_attributes, :cast => valid_cast_attributes}, valid_session
           expect(response).to redirect_to(Movie.last)
         end
       end
@@ -62,12 +62,12 @@ describe MoviesController do
           Movie.any_instance.stub(:save).and_return(false)
         end
         it "assigns a newly created but unsaved movie as @movie" do
-          post :create, {:movie => { "title" => "invalid value" }}, valid_session
+          post :create, {:movie => { "title" => "invalid value" }, :cast => valid_cast_attributes}, valid_session
           expect(assigns(:movie)).to be_a_new(Movie)
         end
 
         it "re-renders the 'new' template" do
-          post :create, {:movie => { "title" => "invalid value" }}, valid_session
+          post :create, {:movie => { "title" => "invalid value" }, :cast => valid_cast_attributes}, valid_session
           expect(response).to render_template("new")
         end
       end
@@ -139,10 +139,10 @@ describe MoviesController do
   describe "Casts" do
 
     describe "GET new" do
-    xit "assigns a new cast as @cast" do
-      get :create_cast, {
+    it "assigns a new cast as @cast" do
+      get :new_cast, {
         :movie_id => movie.to_param, 
-        :cast => valid_cast_attributes
+            :cast => valid_cast_attributes
         }, valid_session
       expect(assigns(:cast)).to be_a_new(Cast)
     end

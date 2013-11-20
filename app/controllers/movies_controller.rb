@@ -17,22 +17,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
-  def new_cast
-    
-  end
 
-  def create_cast
-    @cast = @movie.casts.build(cast_params)
-    respond_to do |format|
-      if @cast.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @movie }
-      else
-        format.html { render action: :new }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   def edit
   end
@@ -70,6 +55,24 @@ class MoviesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def new_cast
+    @cast = Cast.new
+  end
+  
+  def create_cast
+    @cast = @movie.casts.build(cast_params)
+    respond_to do |format|
+      if @cast.save
+        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @movie }
+      else
+        format.html { render action: :new }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+end
 
   private
 
