@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @cast = @movie.casts.build(cast_params)
+    @cast = Cast.new
     respond_to do |format|
       if @movie.save
         format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
@@ -81,7 +81,13 @@ end
     end
 
     def movie_params
-      params.require(:movie).permit(:title, :duration, :synopsis, :year, :categories)
+      params.require(:movie).permit(
+        :title, 
+        :duration, 
+        :synopsis, 
+        :year, 
+        :categories, 
+        casts_attributes: [:id, :person_id, :role, :_destroy])
     end
 
     def cast_params
