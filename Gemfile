@@ -30,6 +30,7 @@ group :test, :development do
   gem 'spork-rails'
   gem 'faker'
   gem 'json'
+  gem 'capybara'
 end
 
 gem 'pry'

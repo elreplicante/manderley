@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-before_action :set_address, only: [:show, :edit, :update]
+before_action :set_address, only: [:show, :edit, :update, :destroy]
   def index
     @addresses = Address.all
   end
@@ -21,8 +21,21 @@ before_action :set_address, only: [:show, :edit, :update]
     end  
   end  
 
-  def update
+  def edit
     
+  end
+
+  def update
+    if @address.update(address_params)
+      redirect_to @address
+    else
+      render :edit
+    end 
+  end
+
+  def destroy
+    @address.destroy
+    redirect_to addresses_path
   end
 
   private

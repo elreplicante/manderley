@@ -74,9 +74,58 @@ describe AddressesController do
 
 
   describe "PUT update" do
+    context "with valid attributes" do
+     it "updates the requested address" do 
+      an_address = create(:address, valid_attributes)
+      put :update, { :id => an_address.to_param, :address => {:street => "Atocha"} } , valid_session
+    end
+
     it "assigns the requested address as @address" do
-      put :update, { id: address.to_param }, valid_session 
+      put :update, { :id => address.to_param, :address => {:street => "Atocha"} }, valid_session 
       expect(assigns(:address)).to eq(address)
     end
+
+    it "redirects to the address page" do
+        put :update, {
+          id: address.to_param, 
+          :address => valid_attributes
+          }, valid_session
+        expect(response).to redirect_to(address)
+      end
+    end
+
+    context "with invalid params" do
+      it "assigns the address as @address" do
+        an_address = create(:address, valid_attributes)
+        put :update, {
+          :id => address.to_param, 
+          :address => { :street => "invalid value" }
+          }, valid_session
+        assigns(:address).should eq(address)
+      end
+
+      it "re-renders the 'edit' template" do
+        an_address = create(:address, valid_attributes)
+        put :update, {
+          :id => address.to_param, 
+          :address => { :street => "invalid value" }
+          }, valid_session
+        expect(response).to render_template(:edit)
+      end
+    end
   end
+
+  describe "DELETE destroy" do
+      it "destroys the requested address" do
+        address = create(:address)
+        expect {
+          delete :destroy, {:id => address.to_param}, valid_session
+        }.to change(Address, :count).by(-1)
+      end
+
+      it "redirects to the address list" do
+        delete :destroy, {:id => address.to_param}, valid_session
+        expect(response).to redirect_to(addresses_path)
+      end
+    end
 end
