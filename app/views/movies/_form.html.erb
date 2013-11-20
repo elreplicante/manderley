@@ -35,12 +35,17 @@
   <%= fields_for :cast, @cast do |cast_attributes| %>
     <div class="field">
       <%= cast_attributes.label :person_id %><br>
-      <%= cast_attributes.select :person_id, Person.all.map { |p| [p.complete_name, p.id]  } %>
+      <%= cast_attributes.select :person_id, Person.all.map { |p| [p.complete_name, p.id] } %>
     </div>
 
     <div class="field">
       <%= cast_attributes.label :role %><br>
-      <%= cast_attributes.select :role, Cast::ROLE.map { |role| [role.titleize, role]  } %>
+      <%= cast_attributes.select :role, Cast::ROLE.map { |role| [role.titleize, role] } %>
+    </div>
+
+    <div class="field">
+      <%= cast_attributes.label :destroy %><br>
+      <%= cast_attributes.check_box :_destroy %>
     </div>
   <% end %>
   <div class="actions">

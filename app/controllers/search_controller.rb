@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   
-
   def new
     @search = Search.new
   end
@@ -11,13 +10,10 @@ class SearchController < ApplicationController
       render :new
     else
       render action: :show
-      
     end
-    
   end
 
   def show
-   
   end
 
   private

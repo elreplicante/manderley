@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
-  accepts_nested_attributes_for :casts
+  accepts_nested_attributes_for :casts, allow_destroy: true
   has_many :people, through: :casts
 
   validates_presence_of :title, :year, :duration
