@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Moviesmanagement" do
-  scenario "adds a new movie" do
+  xscenario "adds a new movie" do
     
     visit new_movie_path
     fill_in "Title", with: "hola"
