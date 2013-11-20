@@ -12,4 +12,6 @@ Manderley::Application.routes.draw do
   post "search", to: "search#create", as: :create
   get "search/show", to:  "search#show", as: :show
   root 'movies#index'
+
+  resources :addresses
 end
