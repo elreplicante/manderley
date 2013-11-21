@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy, :create_cast]
+  before_filter :check_user, only: [:edit, :destroy]
 
   def index
     @movies = Movie.all
@@ -25,6 +26,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     @cast = Cast.new
+    @movie.user = current_user
     respond_to do |format|
       if @movie.save
         format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
@@ -86,11 +88,16 @@ end
         :duration, 
         :synopsis, 
         :year, 
-        :categories, 
+        :categories,
+        :user_id, 
         casts_attributes: [:id, :person_id, :role, :_destroy])
     end
 
     def cast_params
       params.require(:cast).permit(:person_id, :role)
+    end
+
+    def check_user
+      render :show unless current_user == @movie.user
     end
 end

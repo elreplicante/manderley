@@ -1,7 +1,7 @@
 
-  <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-  <section class="column_6 movie-info">
+<section class="column_6 movie-info">
   <ul>
     <li>
       <strong>Title:</strong>
@@ -30,41 +30,26 @@
 
     <li>
       <strong>Cast:</strong>
-        <% if @movie.casts.empty? %> 
-          <strong>No casting in movie</strong>
-        <% else %>
-        
-          <% @movie.casts.each do |c| %>
-          <ul>
-           <li> <strong>Name: </strong><%= c.person.complete_name %></li>
-            <li><strong>Role: </strong><%= c.role.capitalize %></li>
-          </ul>
-          <% end %>
-        <% end %>
-    </li>
-  </ul>
-    <aside class="buttons">
-      <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
-      <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
-      <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %> 
-      <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
-    </aside>
-  </section>
+      <% if @movie.casts.empty? %> 
+      <strong>No casting in movie</strong>
+      <% else %>
 
-  <div id="big_modal" data-tuktuk="modal" class="column_8">
-        <header class="bck alert">
-            <h4 class="text thin inline">Header with <strong>.bck .alert</strong> class</h4>
-            <button data-modal="close" class="transparent small on-right inline icon remove"></button>
-        </header>
-        <article class="text big">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nihil aut sit incidunt amet modi dolores a sed.</article>
-        <footer>
-            <button data-modal="close" class="button large secondary"><span class="icon ok"></span>Accept</button>
-            <button data-modal="close" class="button  alert"><span class="icon remove"></span>Cancel</button>
-        </footer>
-    </div>
+      <% @movie.casts.each do |c| %>
+      <ul>
+       <li> <strong>Name: </strong><%= c.person.complete_name %></li>
+       <li><strong>Role: </strong><%= c.role.capitalize %></li>
+     </ul>
+     <% end %>
+     <% end %>
+   </li>
+ </ul>
+ <aside class="buttons">
+  <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
+  <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
+  <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %>
+  <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
+</aside>
+</section>
 
-  <%= render 'shared/comment' %>
-  <%= render 'shared/cast' %>
-
-
-  
+<%= render 'shared/comment' %>
+<%= render 'shared/cast' %>

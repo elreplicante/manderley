@@ -3,6 +3,7 @@ class Movie < ActiveRecord::Base
   has_many :casts, dependent: :destroy
   accepts_nested_attributes_for :casts, allow_destroy: true, reject_if: :all_blank
   has_many :people, through: :casts
+  belongs_to :user
 
   validates_presence_of :title, :year, :duration
 
