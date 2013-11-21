@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy, :create_cast]
-  before_filter :check_user, only: [:edit, :destroy]
+  before_action :check_user, only: [:edit, :destroy]
 
   def index
     @movies = Movie.all
@@ -13,12 +13,9 @@ class MoviesController < ApplicationController
     @casts = Cast.all
   end
 
-
   def new
     @movie = Movie.new
   end
-
-
 
   def edit
   end
@@ -67,37 +64,45 @@ class MoviesController < ApplicationController
     @cast = @movie.casts.build(cast_params)
     respond_to do |format|
       if @cast.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @movie }
+        format.html { 
+          redirect_to @movie, 
+          notice: 'Movie was successfully created.' 
+        }
+
+        format.json { 
+          render action: 'show', 
+          status: :created, 
+          location: @movie 
+        }
+        
       else
         format.html { render action: :new }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
   private
+  def set_movie
+    @movie = Movie.find(params[:movie_id] || params[:id])
+  end
 
-    def set_movie
-      @movie = Movie.find(params[:movie_id] || params[:id])
-    end
+  def movie_params
+    params.require(:movie).permit(
+      :title, 
+      :duration, 
+      :synopsis, 
+      :year, 
+      :categories,
+      :user_id, 
+      casts_attributes: [:id, :person_id, :role, :_destroy])
+  end
 
-    def movie_params
-      params.require(:movie).permit(
-        :title, 
-        :duration, 
-        :synopsis, 
-        :year, 
-        :categories,
-        :user_id, 
-        casts_attributes: [:id, :person_id, :role, :_destroy])
-    end
+  def cast_params
+    params.require(:cast).permit(:person_id, :role)
+  end
 
-    def cast_params
-      params.require(:cast).permit(:person_id, :role)
-    end
-
-    def check_user
-      render :show unless current_user == @movie.user
-    end
+  def check_user
+    render :show unless current_user == @movie.user
+  end
 end

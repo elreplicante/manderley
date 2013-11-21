@@ -45,8 +45,10 @@
  </ul>
  <aside class="buttons">
   <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
-  <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
-  <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %>
+  <% unless current_user == @movie.user %>
+    <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
+    <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %>
+  <% end %>
   <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
 </aside>
 </section>
