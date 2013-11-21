@@ -137,7 +137,6 @@ describe MoviesController do
   end
 
   describe "Casts" do
-
     describe "GET new" do
     it "assigns a new cast as @cast" do
       get :new_cast, {
