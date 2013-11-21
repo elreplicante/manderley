@@ -65,6 +65,7 @@ GEM
     guard-rspec (4.0.4)
       guard (>= 2.1.1)
       rspec (~> 2.14)
+    hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -89,6 +90,9 @@ GEM
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
     orm_adapter (0.5.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -179,6 +183,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   json
+  omniauth
   pg
   pry
   rails (= 4.0.1)

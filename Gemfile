@@ -36,6 +36,7 @@ end
 gem 'pry'
 
 gem 'devise'
+gem 'omniauth'
 
 
 # Use ActiveModel has_secure_password

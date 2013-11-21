@@ -1,35 +1,43 @@
 
 <div class="column_5">
-<article class="cast-form">
-  <aside class="margin">
-    <%= form_for( @cast, url: movie_create_cast_path(@movie)) do |f| %>
-    <% if @cast.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
+  <article class="cast-form">
+    <aside class="margin">
+      <% if user_signed_in? %>
+      <%= form_for( @cast, url: movie_create_cast_path(@movie)) do |f| %>
+      <% if @cast.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-      <ul>
-        <% @cast.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
+        <ul>
+          <% @cast.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-    <div class="field">
-      <%= f.label :person_id %><br>
-      <%= f.select :person_id, Person.all.map { |p| [p.complete_name, p.id]  } %>
-    </div>
+      <div class="field">
+        <%= f.label :person_id %><br>
+        <%= f.select :person_id, Person.all.map { |p| [p.complete_name, p.id]  } %>
+      </div>
 
-    <div class="field">
-      <%= f.label :role %><br>
-      <%= f.select :role, Cast::ROLE.map { |role| [role.titleize, role]  } %>
-    </div>
+      <div class="field">
+        <%= f.label :role %><br>
+        <%= f.select :role, Cast::ROLE.map { |role| [role.titleize, role]  } %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-    <% end %>
-  </aside>
-</article>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <% end %>
+      <% else %>
+      <div class="bck dark">
+        <p class="white">
+          You must be logged in to add or edit a movie
+        </p>
+      </div>
+      <% end %>
+    </aside>
+  </article>
   
 </div>

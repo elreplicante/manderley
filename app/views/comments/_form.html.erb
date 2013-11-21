@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <%= form_for([@movie, @comment]) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
@@ -20,5 +21,13 @@
   </div>
   <div class="actions">
     <%= f.submit %>
+  </div>
+<% end %>
+
+<% else %>
+   <div class="bck dark">
+    <p class="white">
+      You must be logged in to add or edit a movie
+    </p>
   </div>
 <% end %>
