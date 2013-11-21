@@ -1,4 +1,5 @@
 Manderley::Application.routes.draw do
+  devise_for :users
   resources :people
 
   resources :movies do
