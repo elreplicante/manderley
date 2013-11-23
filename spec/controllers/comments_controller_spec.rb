@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe CommentsController do
 
-  let(:valid_attributes) { FactoryGirl.attributes_for(:comment) }
+  let(:valid_attributes) { attributes_for(:comment) }
   let(:valid_session) { {} }
-  let(:movie) { FactoryGirl.create(:movie) }
-  let(:comment) { FactoryGirl.create(:comment, movie: movie) }
+  let(:movie) { create(:movie) }
+  let(:comment) { create(:comment, movie: movie) }
   
   describe "GET index" do
     it "lists all comments as @comments" do
@@ -137,7 +137,7 @@ describe CommentsController do
 
   describe "DELETE destroy" do
     it "destroys the requested comment" do
-      comment = FactoryGirl.create(:comment, movie: movie)
+      comment = create(:comment, movie: movie)
       expect {
         delete :destroy, {
           :movie_id => movie.to_param, 

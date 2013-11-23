@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe MoviesController do
 
-  let(:valid_movie_attributes) { FactoryGirl.attributes_for(:movie) }
-  let(:valid_cast_attributes) { FactoryGirl.attributes_for(:cast) }
-  let(:movie) { FactoryGirl.create(:movie) } 
-  let(:cast) { FactoryGirl.create(:cast, movie: movie) } 
+  let(:valid_movie_attributes) { attributes_for(:movie) }
+  let(:valid_cast_attributes) { attributes_for(:cast) }
+  let(:movie) { create(:movie) } 
+  let(:cast) { create(:cast, movie: movie) } 
   let(:valid_session) { {} }
 
   describe "Movie" do
@@ -41,12 +41,18 @@ describe MoviesController do
       describe "with valid params" do
         it "creates a new Movie" do
           expect {
-            post :create, {:movie => valid_movie_attributes, :cast => valid_cast_attributes}, valid_session
+            post :create, {
+              :movie => valid_movie_attributes,
+              :cast => valid_cast_attributes
+              }, valid_session
           }.to change(Movie, :count).by(1)
         end
 
         it "assigns a newly created movie as @movie" do
-          post :create, {:movie => valid_movie_attributes, :cast => valid_cast_attributes}, valid_session
+          post :create, {
+            :movie => valid_movie_attributes,
+            :cast => valid_cast_attributes
+            }, valid_session
           expect(assigns(:movie)).to be_a(Movie)
           expect(assigns(:movie)).to be_persisted
         end
@@ -123,7 +129,7 @@ describe MoviesController do
 
     describe "DELETE destroy" do
       it "destroys the requested movie" do
-        movie = FactoryGirl.create(:movie)
+        movie = create(:movie)
         expect {
           delete :destroy, {:id => movie.to_param}, valid_session
         }.to change(Movie, :count).by(-1)
@@ -141,7 +147,7 @@ describe MoviesController do
     it "assigns a new cast as @cast" do
       get :new_cast, {
         :movie_id => movie.to_param, 
-            :cast => valid_cast_attributes
+        :cast => valid_cast_attributes
         }, valid_session
       expect(assigns(:cast)).to be_a_new(Cast)
     end

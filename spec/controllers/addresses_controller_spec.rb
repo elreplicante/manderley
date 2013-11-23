@@ -10,7 +10,7 @@ describe AddressesController do
   describe "GET index" do
     it "assigns all addresses as @addresses" do
       get :index, { }, valid_session
-      expect(assigns(:addresses)).to eq ([address])
+      expect(assigns(:addresses)).to eq([address])
     end
   end
 
@@ -23,14 +23,14 @@ describe AddressesController do
 
   describe "GET show" do
     it "assigns the requested address as @address" do
-      get :show, {id: address.to_param}, valid_session
+      get :show, { id: address.to_param }, valid_session
       expect(assigns(:address)).to eq(address)
     end
   end
 
   describe "GET edit" do
     it "assigns an address to an @address" do
-      get :edit, { id: address.to_param}, valid_session
+      get :edit, { id: address.to_param }, valid_session
       expect(assigns(:address)).to eq(address)
     end
   end
@@ -39,7 +39,7 @@ describe AddressesController do
     context "with valid attributes" do
       it "creates a new address" do
             expect {
-              post :create, {:address => valid_attributes}, valid_session
+              post :create, { :address => valid_attributes}, valid_session
             }.to change(Address, :count).by(1)
       end
 
@@ -77,11 +77,17 @@ describe AddressesController do
     context "with valid attributes" do
      it "updates the requested address" do 
       an_address = create(:address, valid_attributes)
-      put :update, { :id => an_address.to_param, :address => {:street => "Atocha"} } , valid_session
+      put :update, {
+        :id => an_address.to_param,
+        :address => {:street => "Atocha"}
+        }, valid_session
     end
 
     it "assigns the requested address as @address" do
-      put :update, { :id => address.to_param, :address => {:street => "Atocha"} }, valid_session 
+      put :update, {
+        :id => address.to_param,
+        :address => { :street => "Atocha" }
+        }, valid_session 
       expect(assigns(:address)).to eq(address)
     end
 

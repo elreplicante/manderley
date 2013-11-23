@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe PeopleController do
 
-  let(:valid_attributes)  { FactoryGirl.attributes_for(:person) } 
+  let(:valid_attributes)  { attributes_for(:person) } 
+  let(:person) { create(:person) } 
   let(:valid_session) { {} }
 
   describe "GET index" do
     xit "assigns all people as @people" do
-      person = FactoryGirl.create(:person)
       get :index, {}, valid_session
-      assigns(:people).should eq([person])
+      expect(assigns(:people)).to eq([person])
     end
   end
 
@@ -58,14 +58,12 @@ describe PeopleController do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved person as @person" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Person.any_instance.stub(:save).and_return(false)
         post :create, {:person => { "name" => "invalid value" }}, valid_session
         assigns(:person).should be_a_new(Person)
       end
 
       it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Person.any_instance.stub(:save).and_return(false)
         post :create, {:person => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
@@ -77,10 +75,6 @@ describe PeopleController do
     describe "with valid params" do
       it "updates the requested person" do
         person = Person.create! valid_attributes
-        # Assuming there are no other people in the database, this
-        # specifies that the Person created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
         Person.any_instance.should_receive(:update).with({ "name" => "MyString" })
         put :update, {:id => person.to_param, :person => { "name" => "MyString" }}, valid_session
       end
@@ -109,7 +103,6 @@ describe PeopleController do
 
       it "re-renders the 'edit' template" do
         person = Person.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Person.any_instance.stub(:save).and_return(false)
         put :update, {:id => person.to_param, :person => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
