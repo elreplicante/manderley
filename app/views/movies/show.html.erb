@@ -36,8 +36,7 @@
 
       <% @movie.casts.each do |c| %>
       <ul>
-       <li> <strong>Name: </strong><%= c.person.complete_name %></li>
-       <li><strong>Role: </strong><%= c.role.capitalize %></li>
+       <li> <strong><%= c.role.capitalize %>: </strong><%= c.person.complete_name %></li>
      </ul>
      <% end %>
      <% end %>
