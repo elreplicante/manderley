@@ -22,7 +22,6 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
   end  
 
   def edit
-    
   end
 
   def update
@@ -46,5 +45,4 @@ before_action :set_address, only: [:show, :edit, :update, :destroy]
   def address_params
     params.require(:address).permit(:street, :number, :zipcode)
   end
-
 end

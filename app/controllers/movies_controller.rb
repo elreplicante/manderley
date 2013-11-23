@@ -64,17 +64,8 @@ class MoviesController < ApplicationController
     @cast = @movie.casts.build(cast_params)
     respond_to do |format|
       if @cast.save
-        format.html { 
-          redirect_to @movie, 
-          notice: 'Movie was successfully created.' 
-        }
-
-        format.json { 
-          render action: 'show', 
-          status: :created, 
-          location: @movie 
-        }
-        
+        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @movie }
       else
         format.html { render action: :new }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
