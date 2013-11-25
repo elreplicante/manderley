@@ -1,7 +1,7 @@
 <h1>Listing movies</h1> 
 
   <div class="row">
-     <% @movies.reverse.each do |movie| %>
+     <% @movies.each do |movie| %>
       <article class="column_4 padding bck <%= cycle("dark", "light") -%>">
         <header>
           <h3><%= movie.title %></h3>
