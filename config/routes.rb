@@ -13,4 +13,6 @@ Manderley::Application.routes.draw do
   get "search/new", to: "search#new", as: :new
   post "search", to: "search#create", as: :create
   get "search/show", to:  "search#show", as: :show
+
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 end

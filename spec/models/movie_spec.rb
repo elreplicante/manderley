@@ -15,7 +15,7 @@ describe Movie do
     it "without a year" do
       expect(build(:movie, year: nil)).to_not be_valid
     end
-
+  
     it "without a duration" do
       expect(build(:movie, duration: nil)).to_not be_valid
     end
