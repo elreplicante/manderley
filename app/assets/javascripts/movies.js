@@ -11,3 +11,28 @@ $(document).ready(function() {
        $('.cast-form').css('display', 'block');
     });
 });
+
+$.ajax({
+    dataType: "json",
+    url: "movies/",
+    success: function(data){
+        var $select = $("<select>");
+
+        $.each(data, function(key, value){
+            var $option = $("<option>", {text: value.title});
+            $select.append($option);
+        });
+
+        $select.prependTo("body");
+    }
+    }
+);
+
+
+var MovieList = function(client) {
+    var getMovies = function() {
+        client.readMovies();
+    };
+
+    return { getMovies: getMovies }
+}
