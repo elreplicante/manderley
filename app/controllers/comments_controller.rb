@@ -53,7 +53,7 @@ class CommentsController < ApplicationController
   protected
 
   def set_movie
-    @movie = Movie.find(params[:movie_id])
+    @movie = Movie.friendly.find(params[:movie_id])
   end
 
   def set_comment

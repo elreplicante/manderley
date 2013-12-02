@@ -38,6 +38,7 @@ gem 'pry'
 
 gem 'devise'
 gem 'omniauth'
+gem 'friendly_id', '~> 5.0.0'
 
 group :development do
   gem 'capistrano'

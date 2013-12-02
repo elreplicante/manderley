@@ -50,7 +50,7 @@ class PeopleController < ApplicationController
 
   protected
     def set_person
-      @person = Person.find(params[:id])
+      @person = Person.friendly.find(params[:id])
     end
 
     def person_params

@@ -75,7 +75,7 @@ class MoviesController < ApplicationController
 
   private
   def set_movie
-    @movie = Movie.find(params[:movie_id] || params[:id])
+    @movie = Movie.friendly.find(params[:movie_id] || params[:id])
   end
 
   def movie_params
