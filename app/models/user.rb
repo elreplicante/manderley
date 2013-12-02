@@ -4,5 +4,10 @@ class User < ActiveRecord::Base
   has_many :movies
 
   extend FriendlyId
-  friendly_id :email, use: :slugged
+  friendly_id :friendly_email, use: :slugged
+
+  def friendly_email
+    friendly_email = self.email.sub('@', 'at')
+    friendly_email = friendly_email.sub('.', 'dot')
+  end
 end

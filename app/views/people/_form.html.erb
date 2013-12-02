@@ -1,23 +1,10 @@
-<%= form_for(@person) do |f| %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for(@person) do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.input :name %><br>
+
   </div>
   <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+    <%= f.input :surname %><br>
   </div>
     
   <div class="actions">
