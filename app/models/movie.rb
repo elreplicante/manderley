@@ -1,11 +1,22 @@
 class Movie < ActiveRecord::Base
+  
+  class << self
+    def role_relation role
+      has_many role.pluralize.to_sym, 
+        -> { where(casts: { role: role }) }, through: :casts, source: :person
+    end
+  end
+
+  Cast::ROLE.each { |role| role_relation role }
+
+  scope :directed_by, ->(person){ joins(:casts).where(casts: {role: 'director', person: person}) }
+
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
   accepts_nested_attributes_for :casts, allow_destroy: true, reject_if: :all_blank
   has_many :people, through: :casts
   belongs_to :user
 
-  has_many :directors, -> { Cast.where(role: 'director') }, through: :casts, source: :person
   validates_presence_of :title, :year, :duration
 
   scope :short, -> { where('duration < ?', 60) }
@@ -17,4 +28,6 @@ class Movie < ActiveRecord::Base
   scope :modern, -> { where('year > ?', 2000) }
   scope :gorgeous, -> { self.modern.long }
   scope :last_at_least, ->(n) {  }
+  scope :last_weeks, -> { where('created_at > ?', 1.week.ago) }
+
 end
