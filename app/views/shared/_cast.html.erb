@@ -3,32 +3,10 @@
   <article class="cast-form">
     <aside class="margin">
       <% if user_signed_in? %>
-      <%= form_for( @cast, url: movie_create_cast_path(@movie)) do |f| %>
-      <% if @cast.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
-
-        <ul>
-          <% @cast.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
-
-      <div class="field">
-        <%= f.label :person_id %><br>
-        <%= f.select :person_id, Person.all.map { |p| [p.complete_name, p.id]  } %>
-      </div>
-
-      <div class="field">
-        <%= f.label :role %><br>
-        <%= f.select :role, Cast::ROLE.map { |role| [role.titleize, role]  } %>
-      </div>
-
-      <div class="actions">
+      <%= simple_form_for( @cast, url: movie_create_cast_path(@movie)) do |f| %>
+        <%= f.input :person_id, collection: Person.all %><br>
+        <%= f.input :role, collection: Cast::ROLE, as: :radio_buttons %>
         <%= f.submit %>
-      </div>
       <% end %>
       <% else %>
       <div class="bck dark">
@@ -39,5 +17,4 @@
       <% end %>
     </aside>
   </article>
-  
 </div>

@@ -3,4 +3,26 @@ en:
   duration: 'duration'
   genre: 'genre'
   synopsis: 'synopsis'
+
+  simple_form:
+    labels:
+      defaults:
+        username: 'User name'
+        password: 'Password'
+        new:
+          username: 'Choose a user name'
+    hints:
+      defaults:
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
+    placeholders:
+      defaults:
+        username: 'Your username'
+        password: '****'
+
+    helpers:
+      submit:
+        movie:
+          create: "Add %{model}"
+          update: "Save Changes"
   

@@ -1,64 +1,24 @@
 <% if user_signed_in? %>
 
-<%= form_for(@movie) do |f| %>
-<% if @movie.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<%= simple_form_for(@movie) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :duration %>
+  <%= f.input :year %>
+  <%= f.input :categories %>
+  <%= f.input :synopsis %>
 
-  <ul>
-    <% @movie.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<div class="field">
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</div>
-<div class="field">
-  <%= f.label :duration %><br>
-  <%= f.number_field :duration %>
-</div>
-<div class="field">
-  <%= f.label :year %><br>
-  <%= f.number_field :year %>
-</div>
-<div class="field">
-  <%= f.label :categories %><br>
-  <%= f.text_field :categories %>
-</div>
-<div class="field">
-  <%= f.label :synopsis %><br>
-  <%= f.text_area :synopsis %>
-</div>
-
-<%= fields_for :casts, @cast do |cast_attributes| %>
-<div class="field">
-  <%= cast_attributes.label :person_id %><br>
-  <%= cast_attributes.select :person_id, Person.all.map { |p| [p.complete_name, p.id] } %>
-</div>
-
-<div class="field">
-  <%= cast_attributes.label :role %><br>
-  <%= cast_attributes.select :role, Cast::ROLE.map { |role| [role.titleize, role] } %>
-</div>
-
-<div class="field">
-  <%= cast_attributes.label :destroy %><br>
-  <%= cast_attributes.check_box :_destroy %>
-</div>
-<% end %>
-<div class="actions">
-  <%= f.submit %>
-</div>
+  <%= f.simple_fields_for :cast do |cast_attributes| %>
+    <%= cast_attributes.input :person_id, collection: Person.all %>
+    <%= cast_attributes.input :role, collection: Cast::ROLE, as: :radio_buttons %>
+    <%= cast_attributes.input :destroy, as: :boolean %>
+  <% end %>
+  <%= f.submit %> 
 <% end %>
 
 <% else %>
-<div class="bck dark">
-  <p class="white">
-    You must be logged in to add or edit a movie
-  </p>
-</div>
+  <div class="bck dark">
+    <p class="white">
+      You must be logged in to add or edit a movie
+    </p>
+  </div>
 <% end %>

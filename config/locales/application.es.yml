@@ -12,5 +12,26 @@ es:
       comment:
         one: 'comentario'
         other: 'comentarios'
-        
 
+  simple_form:
+    labels:
+      defaults:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        new:
+          username: 'Elige un nombre de usuario'
+    hints:
+      defaults:
+        username: 'Nombre de usuario para registrarse.'
+        password: 'Sin caracteres especiales, por favor.'
+    placeholders:
+      defaults:
+        username: 'Tu nombre de usuario'
+        password: '****'
+
+    helpers:
+      submit:
+        movie:
+          create: "Añadir %{model}"
+          update: "Guardar los cambios"
+          

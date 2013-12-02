@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
 
   Cast::ROLE.each { |role| role_relation role }
 
-  
+  serialize :categories
 
   has_many :comments , dependent: :destroy
   has_many :casts, dependent: :destroy
@@ -32,4 +32,12 @@ class Movie < ActiveRecord::Base
   scope :last_at_least, ->(n) {  }
   scope :last_weeks, -> { where('created_at > ?', 1.week.ago) }
   scope :directed_by, ->(person){ joins(:casts).where(casts: {role: 'director', person: person}) }
+
+  before_save :reject_categories
+
+  CATEGORIES = ['Action', 'Drama']
+
+  def reject_categories
+    self.categories = self.categories.find_all { |x| x.present? }
+  end
 end
