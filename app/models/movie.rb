@@ -18,6 +18,7 @@ class Movie < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :title, :year, :duration
+  
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -35,7 +36,7 @@ class Movie < ActiveRecord::Base
 
   before_save :reject_categories
 
-  CATEGORIES = ['Action', 'Drama']
+  CATEGORIES = [:romance, :scifi, :action]
 
   def reject_categories
     self.categories = self.categories.find_all { |x| x.present? }

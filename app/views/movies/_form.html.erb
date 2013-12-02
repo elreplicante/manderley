@@ -4,7 +4,10 @@
   <%= f.input :title %>
   <%= f.input :duration %>
   <%= f.input :year %>
-  <%= f.input :categories %>
+  <%= f.input :categories,
+    as: :check_boxes,
+    collection: Movie::CATEGORIES,
+    label_method: ->(x) { x.to_s.titleize } %>
   <%= f.input :synopsis %>
 
   <%= f.simple_fields_for :cast do |cast_attributes| %>
