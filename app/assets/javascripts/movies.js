@@ -28,11 +28,34 @@ $.ajax({
     }
 );
 
+function movieList(client, widget) {
+    var self = {};
 
-var MovieList = function(client) {
-    var getMovies = function() {
+     self.getMovies = function() {
         client.readMovies();
     };
 
-    return { getMovies: getMovies }
-}
+    var drawMovies = function(movies) {
+        widget.draw(movies);
+    }
+
+    return self;
+};
+
+function client() {
+    self.readMovies = function(callback){
+        $.get("movies", function(data) {
+            callback(data);
+        });
+    };
+
+    return self;
+};
+
+function widget() {
+    self.draw = function(movies) {
+
+    };
+
+    return self;
+};
