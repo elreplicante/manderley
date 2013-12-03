@@ -39,6 +39,6 @@ class Movie < ActiveRecord::Base
   CATEGORIES = [:romance, :scifi, :action]
 
   def reject_categories
-    self.categories = self.categories.find_all { |x| x.present? }
+    self.categories = (self.categories || []).find_all { |x| x.present? }
   end
 end

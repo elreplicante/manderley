@@ -1,0 +1,12 @@
+<div>
+    <p>User: <%= @user %></p>
+    email: <%= @user.email %>
+</div>
+<br>
+<% if @user.admin? %>
+  Soy admin!
+<% else %>
+  No soy admin :(
+<% end %>
+
+<%= link_to 'Edit', edit_user_path %>

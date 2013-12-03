@@ -11,4 +11,17 @@ class User < ActiveRecord::Base
     friendly_email = self.email.sub('@', 'at')
     friendly_email = friendly_email.sub('.', 'dot')
   end
+
+  def admin
+    self.has_role? :admin
+  end
+  alias_method :admin?, :admin
+
+  def admin= value
+    if value == "1"
+      self.add_role :admin
+    else
+      self.remove_role :admin
+    end
+  end
 end

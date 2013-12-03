@@ -1,0 +1,5 @@
+<%= simple_form_for(@user) do |u| %>
+    <%= u.input :email %>
+    <%= u.input :admin, as: :boolean %>
+    <%= u.button :submit %>
+<% end %>
