@@ -32,9 +32,14 @@ group :test, :development do
   gem 'json'
   gem 'capybara'
   gem 'jasmine-rails'
+  gem "teaspoon"
+  gem 'pry'
 end
 
-gem 'pry'
+group :test do
+  gem 'database_cleaner'
+end
+
 
 gem 'devise'
 gem 'omniauth'
@@ -46,16 +51,6 @@ gem 'authority'
 group :development do
   gem 'capistrano'
 end
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

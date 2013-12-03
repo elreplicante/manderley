@@ -95,5 +95,20 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.include Devise::TestHelpers, :type => :controller
-  
+
+  db_cleaner = DatabaseCleaner
+
+  config.before(:suite) do |config|
+    db_cleaner.clean_with :truncation
+  end
+
+  config.before(:each) do |config|
+    db_cleaner.strategy = if example.metadata[:js]
+                            :truncation
+                          else
+                            :transaction
+                          end
+      end
+    end
+  end
 end

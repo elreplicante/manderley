@@ -32,7 +32,7 @@ describe('Movies list', function() {
 
 
 describe('Map', function() {
-    it("loads a list of movies ", function() {
+    xit("loads a list of movies ", function() {
         var center = { lat: 0.000, lon: 0.000 };
     });
 
