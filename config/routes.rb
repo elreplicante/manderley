@@ -3,7 +3,7 @@ Manderley::Application.routes.draw do
 
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update]
-  get "profile", to: "users#profile"
+  get "profile", to: "users#profile", as: :profile
   resources :people
   resources :addresses
 

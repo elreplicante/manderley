@@ -12,6 +12,11 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+    @user = current_user
+    render 'show'
+  end
+
   def update
     if @user.update(user_params)
       redirect_to @user, notice: 'User was successfully updated.'
