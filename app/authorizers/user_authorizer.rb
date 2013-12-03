@@ -5,6 +5,6 @@ class UserAuthorizer < ApplicationAuthorizer
   end
 
   def deletable_by?(user)
-    user == resource || user.admin?
+    user.admin?
   end
 end

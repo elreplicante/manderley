@@ -35,8 +35,8 @@ describe UserAuthorizer do
       expect(@user).not_to be_deletable_by(mock_user)
     end
 
-    it "can delete itselfs" do
-      expect(@user).to be_deletable_by(@user)
+    it "can't delete itselfs" do
+      expect(@user).not_to be_deletable_by(@user)
     end
 
     it "can't update other users" do
