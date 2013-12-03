@@ -9,7 +9,7 @@ class SearchController < ApplicationController
     if @search.results.empty?
       render :new
     else
-      render :show
+      render action: :show
     end
   end
 

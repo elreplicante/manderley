@@ -9,11 +9,11 @@ describe Person do
   end
 
   describe "is invalid" do
-    xit "without a name" do
+    it "without a name" do
       expect(build(:person, name: nil)).to_not be_valid
     end
 
-    xit "without a year" do
+    it "without a year" do
       expect(build(:person, surname: nil)).to_not be_valid
     end
   end

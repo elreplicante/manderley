@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SearchController do
   let(:valid_search_attributes) { attributes_for(:search) }
-  #let(:search) { create(:search) }
+  let(:search) { create(:search) }
   let(:valid_session) { {} }
   
   describe "Search" do

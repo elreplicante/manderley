@@ -7,7 +7,7 @@ describe PeopleController do
   let(:valid_session) { {} }
 
   describe "GET index" do
-    xit "assigns all people as @people" do
+    it "assigns all people as @people" do
       get :index, {}, valid_session
       expect(assigns(:people)).to eq([person])
     end
