@@ -14,16 +14,7 @@
             </nav>
 
             <nav class="column_6  text right bold">
-                <% if user_signed_in? %>
-                  <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "button small" %>
-                  <%= link_to 'Signout', user_registration_path,
-                    :confirm => 'Are you sure you want to destroy your account?',
-                    :method => :delete, class: "button small" %>
-                  <%= link_to 'Create Movie', new_movie_path, class: "button small" %>
-                <% else %>
-                  <%= link_to 'Login', new_user_session_path, class: "button small" %>
-                  <%= link_to 'Signup', new_user_registration_path, class: "button small" %>
-                <% end %>
+               <%= render 'shared/menu' %>
             </nav>
         </div>
     </header>

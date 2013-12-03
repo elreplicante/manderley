@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   rolify
-  
   devise :database_authenticatable, :registerable, :recoverable
   has_many :movies
-
   extend FriendlyId
   friendly_id :friendly_email, use: :slugged
+
+  include Authority::UserAbilities
+  include Authority::Abilities
 
   def friendly_email
     friendly_email = self.email.sub('@', 'at')

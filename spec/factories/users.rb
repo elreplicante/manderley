@@ -1,7 +1,10 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :user do
-    email "abc@mymail.com"
+    email Faker::Internet.email
+    trait :admin do
+      after(:create, :build) do |user|
+        user.add_role(:admin)
+      end
+    end
   end
 end
