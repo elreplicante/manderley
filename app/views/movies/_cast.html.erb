@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <%= simple_form_for( cast, url: movie_create_cast_path(movie)) do |f| %>
+    <%= f.input :person_id, collection: Person.all %><br>
+    <%= f.input :role, collection: Cast::ROLE, as: :radio_buttons %>
+    <%= f.submit %>
+  <% end %>
+  <% else %>
+  <div class="bck dark">
+    <p class="white">
+      You must be logged in to add or edit a movie
+    </p>
+  </div>
+<% end %>

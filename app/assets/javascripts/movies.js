@@ -1,15 +1,17 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 $(document).ready(function() {
     $('#add-comment').on('click', function(event) {
         $('.comment-form').css('display', 'block');
+        $('.cast-form').css('display', 'none');
+
     });    
 })
 
 $(document).ready(function() {
     $('#add-person').on('click', function(event) {
-       $('.cast-form').css('display', 'block');
-    });
+     $('.cast-form').css('display', 'block');
+     $('.comment-form').css('display', 'none');
+
+ });
 });
 
 $.ajax({
@@ -25,13 +27,13 @@ $.ajax({
 
         $select.prependTo("body");
     }
-    }
+}
 );
 
 function movieList(client, widget) {
     var self = {};
 
-     self.getMovies = function() {
+    self.getMovies = function() {
         client.readMovies();
     };
 

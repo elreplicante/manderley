@@ -42,15 +42,13 @@
      <% end %>
    </li>
  </ul>
- <aside class="buttons">
-  <%= link_to 'Add comment', '#', id: 'add-comment' , class: 'button secondary'%>
-  <% if current_user == @movie.user&& user_signed_in? %>
-    <%= link_to 'Edit movie', edit_movie_path(@movie), class: 'button secondary' %> 
-    <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %>
-  <% end %>
-  <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>
-</aside>
+<%= render partial: 'movie_menu', 
+      layout: "movie_buttons",
+      locals: { movie: @movie, user: @movie.user } 
+  %>
 </section>
 
-<%= render 'shared/comment' %>
-<%= render 'shared/cast' %>
+<%= render partial: 'comment', locals: { movie: @movie, comment: @comment } %>
+<%= render  partial: 'cast',
+            locals: { cast: @cast, movie: @movie },
+            layout: 'cast_layout' %>

@@ -1,0 +1,17 @@
+<article class="home-movie column_4 padding margin bck <%= cycle("dark", "light") -%>">
+        <header>
+          <h3><%= link_to movie.title, movie %></h3>
+        </header>
+        <div class="movie-info">
+          <p><span class="text bold"><%= t('year').capitalize %>: </span><%= movie.year %></p>
+          <p><span class="text bold"><%= t('duration') %> </span><%= movie.duration %> mn</p>
+          <p><span class="text bold"><%= t('genre') %>: </span><%= movie.categories %></p>
+          <p><span class="text bold"><%= t('synopsis') %>: </span><%= truncate(movie.synopsis, length: 120) %></p>
+        </div>
+        <aside class="buttons">
+          <% if current_user == movie.user && user_signed_in? %>
+            <%= link_to 'Edit', edit_movie_path(movie), class: 'button secondary' %>
+            <%= link_to 'Destroy', movie, class: 'button secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </aside>
+</article>

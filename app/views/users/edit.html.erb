@@ -1,5 +1,5 @@
 <h1>Editing user</h1>
-<p>User: <%= @user %></p>
+<p>User:</p>
 email: <%= @user.email %>
-<%= render 'user_form' %>
+<%= render partial: 'user_form', locals: { user: @user } %>
 

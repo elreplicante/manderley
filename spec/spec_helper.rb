@@ -108,7 +108,5 @@ RSpec.configure do |config|
                           else
                             :transaction
                           end
-      end
-    end
   end
 end

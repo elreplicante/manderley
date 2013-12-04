@@ -2,13 +2,13 @@
   
   <aside class="comment-form margin">
     <% if user_signed_in? %>
-    <%= form_for([@movie, @comment]) do |f| %>
-    <% if @comment.errors.any? %>
+    <%= form_for([movie, comment]) do |f| %>
+    <% if comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
       <ul>
-        <% @comment.errors.full_messages.each do |msg| %>
+        <% comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
       </ul>
@@ -37,8 +37,8 @@
   </aside>
   <div class="comments margin">
     <h4>Comments</h4>
-    <% if @movie.comments.any? %>
-    <% @movie.comments.each do |comment|  %>
+    <% if movie.comments.any? %>
+    <% movie.comments.each do |comment|  %>
     <div class="comment">
       <h5>Author: <span><%= comment.author %></span></h5>
       <p><%= comment.body %></p>
