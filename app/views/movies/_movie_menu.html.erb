@@ -2,5 +2,7 @@
 <% if current_user == user && user_signed_in? %>
     <%= link_to 'Edit movie', edit_movie_path(movie), class: 'button secondary' %> 
     <%= link_to 'Add person', '#', id: 'add-person', class: 'button secondary' %>
+    <%= link_to 'Delete movie', '#', class: 'button secondary', remote: true, method: 'delete' %>
+
 <% end %>
 <%= link_to 'Back to movies list', movies_path, class: 'button secondary' %>

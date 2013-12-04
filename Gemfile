@@ -32,7 +32,7 @@ group :test, :development do
   gem 'json'
   gem 'capybara'
   gem 'jasmine-rails'
-  gem "teaspoon"
+  gem 'teaspoon'
   gem 'pry'
 end
 

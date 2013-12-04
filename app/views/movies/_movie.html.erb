@@ -11,7 +11,7 @@
         <aside class="buttons">
           <% if current_user == movie.user && user_signed_in? %>
             <%= link_to 'Edit', edit_movie_path(movie), class: 'button secondary' %>
-            <%= link_to 'Destroy', movie, class: 'button secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Destroy', movie, class: 'button secondary', method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
           <% end %>
         </aside>
 </article>

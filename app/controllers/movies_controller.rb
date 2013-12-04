@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
     @movie.destroy
     respond_to do |format|
       format.html { redirect_to movies_url }
-      format.json { head :no_content }
+      format.js { head :no_content }
     end
   end
 
@@ -71,6 +71,10 @@ class MoviesController < ApplicationController
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def to_key
+    [slug]
   end
 
   private
