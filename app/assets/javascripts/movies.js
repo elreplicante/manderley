@@ -30,14 +30,7 @@ $.ajax({
 }
 );
 
-function destroyMovie() {
-    $.ajax('movies/<%= dom_id(resource)',
-    { type: 'DELETE',
-    success: function(){
-        //Do something
-    } }
-    );
-}
+
 
 
 
