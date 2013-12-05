@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf-8
-  database: manderley_production
+  database: d8dnrh3n4pl81p
   pool: 5
-  username: repli
-  password: W3w88k01
+  username: agefdnnhuevokc
+  password: Wq8oyCHnU2LBu8m288iwA4Sprp
