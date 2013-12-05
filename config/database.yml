@@ -54,8 +54,5 @@ test:
 production:
   adapter: postgresql
   encoding: utf-8
-  database: d8dnrh3n4pl81p
   pool: 5
-  username: agefdnnhuevokc
-  password: Wq8oyCHnU2LBu8m288iwA4Sprp
-  host: ec2-23-21-243-117.compute-1.amazonaws.com
+  username: calm-ravine-1979
