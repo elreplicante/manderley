@@ -58,3 +58,4 @@ production:
   pool: 5
   username: agefdnnhuevokc
   password: Wq8oyCHnU2LBu8m288iwA4Sprp
+  host: ec2-23-21-243-117.compute-1.amazonaws.com
