@@ -54,5 +54,5 @@ test:
 production:
   adapter: postgresql
   encoding: utf-8
+  database: manderley_production
   pool: 5
-  username: calm-ravine-1979
