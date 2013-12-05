@@ -56,3 +56,4 @@ production:
   encoding: utf-8
   database: manderley_production
   pool: 5
+  password: 
