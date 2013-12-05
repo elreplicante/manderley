@@ -30,10 +30,6 @@ $.ajax({
 }
 );
 
-
-
-
-
 function movieList(client, widget) {
     var self = {};
 
