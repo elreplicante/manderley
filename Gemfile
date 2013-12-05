@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'sidekiq'
 gem 'foreman'
+gem 'rails_12factor'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
