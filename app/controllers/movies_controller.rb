@@ -87,7 +87,8 @@ class MoviesController < ApplicationController
       :title, 
       :duration, 
       :synopsis, 
-      :year, 
+      :year,
+      :poster, 
       {categories: []},
       :user_id, 
       casts_attributes: [:id, :person_id, :role, :_destroy])

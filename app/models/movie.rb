@@ -19,6 +19,8 @@ class Movie < ActiveRecord::Base
 
   validates_presence_of :title, :year, :duration
   
+
+  mount_uploader :poster, PosterUploader
   extend FriendlyId
   friendly_id :title, use: :slugged
 

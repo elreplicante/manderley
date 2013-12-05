@@ -29,6 +29,11 @@
     </li>
 
     <li>
+      <strong>Poster:</strong>
+      <%= image_tag(@movie.poster_url.to_s) %>
+    </li>
+
+    <li>
       <strong>Cast:</strong>
       <% if @movie.casts.empty? %> 
       <strong>No casting in movie</strong>

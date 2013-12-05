@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203084648) do
+ActiveRecord::Schema.define(version: 20131205162940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20131203084648) do
     t.integer  "comments_count"
     t.integer  "user_id"
     t.string   "slug"
+    t.string   "poster"
   end
 
   add_index "movies", ["slug"], name: "index_movies_on_slug", unique: true, using: :btree

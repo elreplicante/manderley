@@ -9,6 +9,7 @@
     collection: Movie::CATEGORIES,
     label_method: ->(x) { x.to_s.titleize } %>
   <%= f.input :synopsis %>
+  <%= f.file_field :poster %>
 
   <%= f.simple_fields_for :cast do |cast_attributes| %>
     <%= cast_attributes.input :person_id, collection: Person.all %>
