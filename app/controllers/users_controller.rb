@@ -37,8 +37,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :admin)
   end
-
-  def redirect_to_root
-    redirect_to root_path, notice: "Not allowed"
-  end
 end

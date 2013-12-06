@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   include Authority::Abilities
 
   def friendly_email
-    friendly_email = self.email.sub('@', 'at')
-    friendly_email = friendly_email.sub('.', 'dot')
+    friendly_email = self.email.sub('@', ' at ')
+    friendly_email = friendly_email.sub('.', ' dot ')
   end
 
   def admin
